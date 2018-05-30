@@ -119,7 +119,7 @@ function add(a, b) {
 
 ```javascript
 function sumMany() {
-  var nums = Array.prototype.slice.call(arguments, 2);
+  var nums = Array.prototype.slice.call(arguments);
   return nums.reduce(function(a, b) {
     return a + b;
   }, 0);
