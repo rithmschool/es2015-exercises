@@ -110,12 +110,14 @@ function double(arr) {
 
 ```javascript
 function add(a, b) {
-  if (a === 0) a = 0;
-  else {
+  if (a === 0) {
+    a = 0;
+  } else {
     a = a || 10;
   }
-  if (b === 0) b = 0;
-  else {
+  if (b === 0) {
+    b = 0;
+  } else {
     b = b || 10;
   }
   return a + b;
@@ -130,12 +132,21 @@ function add(a = 10, b = 10) {
 }
 ```
 
-Research the following functions - what do they do?
+### ES5 Function that takes a variable number of arguments
 
-`Array.from` - builds an array from an array-like structure (e.g. a Node List from the DOM).
+```javascript
+function sumMany() {
+  var nums = Array.prototype.slice.call(arguments);
+  return nums.reduce(function(a, b) {
+    return a + b;
+  }, 0);
+}
+```
 
-`Object.assign` - utility function for deep copying objects or copying certain properties into a new object.
+### ES6 Function that takes a variable number of arguments
 
-`Array.includes` - a new method that returns `true` or `false` based on if an element is found within the array.
-
-`String.startsWith` - a new method that checks if the passed substring is at the beginning of the current string.
+```js
+function sumMany(...nums) {
+  return nums.reduce((a, b) => a + b, 0);
+}
+```

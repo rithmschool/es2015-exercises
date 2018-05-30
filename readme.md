@@ -95,12 +95,14 @@ function double(arr) {
 
 ```javascript
 function add(a, b) {
-  if (a === 0) a = 0;
-  else {
+  if (a === 0) {
+    a = 0;
+  } else {
     a = a || 10;
   }
-  if (b === 0) b = 0;
-  else {
+  if (b === 0) {
+    b = 0;
+  } else {
     b = b || 10;
   }
   return a + b;
@@ -113,16 +115,25 @@ function add(a, b) {
 /* es6 goes here */
 ```
 
-Research the following functions - what do they do?
+### ES5 Function that takes a variable number of arguments
 
-`Array.from` -
+```javascript
+function sumMany() {
+  var nums = Array.prototype.slice.call(arguments, 2);
+  return nums.reduce(function(a, b) {
+    return a + b;
+  }, 0);
+}
+```
 
-`Object.assign` -
+### ES6 Function that takes a variable number of arguments
 
-`Array.includes` -
+```js
+/* es6 goes here */
+```
 
-`String.startsWith` -
+---
 
 ### Part II
 
-Complete the exercise [here](https://github.com/rithmschool/guess_the_password)
+Complete the refactor exercises [here](https://github.com/rithmschool/guess-the-password-assignment)
